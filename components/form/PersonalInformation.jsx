@@ -18,36 +18,19 @@ const PersonalInformation = ({}) => {
         />
         <input
           type="text"
-          placeholder="Job Title"
-          name="position"
+          placeholder="Age"
+          name="age"
           className="pi"
-          value={resumeData.position}
+          value={resumeData.age}
           onChange={handleChange}
         />
+
         <input
           type="text"
-          placeholder="Contact Information"
-          name="contactInformation"
+          placeholder="gender"
+          name="gender"
           className="pi"
-          value={resumeData.contactInformation}
-          onChange={handleChange}
-          minLength="10"
-          maxLength="15"
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          name="email"
-          className="pi"
-          value={resumeData.email}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          placeholder="Address"
-          name="address"
-          className="pi"
-          value={resumeData.address}
+          value={resumeData.gender}
           onChange={handleChange}
         />
         <input

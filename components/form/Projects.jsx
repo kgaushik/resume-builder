@@ -48,23 +48,6 @@ const Projects = () => {
             value={project.name}
             onChange={(e) => handleProjects(e, index)}
           />
-          <input
-            type="text"
-            placeholder="Link"
-            name="link"
-            className="w-full other-input"
-            value={project.link}
-            onChange={(e) => handleProjects(e, index)}
-          />
-          <textarea
-            type="text"
-            placeholder="Description"
-            name="description"
-            className="w-full other-input h-32"
-            value={project.description}
-            maxLength="250"
-            onChange={(e) => handleProjects(e, index)}
-          />
           <textarea
             type="text"
             placeholder="Key Achievements"

@@ -3,144 +3,210 @@
 @tailwind utilities;
 
 @layer base {
-    
-    body {
-        @apply font-[sans-serif];
-    }
+  body {
+  }
 
-    ::-webkit-scrollbar {
-        @apply w-2.5 h-2.5;
-    }
+  ::-webkit-scrollbar {
+    @apply w-2.5 h-2.5;
+  }
 
-    ::-webkit-scrollbar-track {
-        @apply bg-gray-200;
-    }
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-200;
+  }
 
-    ::-webkit-scrollbar-thumb {
-        @apply bg-fuchsia-600;
-    }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-fuchsia-600;
+  }
 
-    ::-webkit-scrollbar-thumb:hover {
-        @apply bg-fuchsia-700;
-    }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-fuchsia-700;
+  }
 
-    textarea, input:focus {
-        @apply focus:outline-none;
-    }
+  textarea,
+  input:focus {
+    @apply focus:outline-none;
+  }
 
-    .ul-padding{
-        padding-inline-start: 0.9rem;
-    }
+  .ul-padding {
+    padding-inline-start: 0.9rem;
+  }
 
-    .ul-padding-none{
-        padding-inline-start: 0;
-    }
+  .ul-padding-none {
+    padding-inline-start: 0;
+  }
 }
 
-@layer components{
-    .pi{
-        @apply p-2 mb-2 text-black bg-white rounded text-[0.9rem];
-    }
+@layer components {
+  .pi {
+    @apply p-2 mb-2 text-black bg-white rounded text-[0.9rem];
+  }
 
-    .profileInput{
-        @apply pi file:border-0 file:bg-fuchsia-500 file:text-white file:rounded-sm;
-    }
+  .profileInput {
+    @apply pi file:border-0 file:bg-fuchsia-500 file:text-white file:rounded-sm;
+  }
 
-    .flex-col-gap-2{
-        @apply flex flex-col gap-2;
-    }
+  .flex-col-gap-2 {
+    @apply flex flex-col gap-2;
+  }
 
-    .flex-wrap-gap-2{
-        @apply flex flex-wrap gap-2;
-    }
+  .flex-wrap-gap-2 {
+    @apply flex flex-wrap gap-2;
+  }
 
-    .other-input{
-        @apply p-2 mb-2 text-black bg-white rounded focus:placeholder-transparent;
-    }
+  .other-input {
+    @apply p-2 mb-2 text-black bg-white rounded focus:placeholder-transparent;
+  }
 
-    .input-title{
-        @apply text-[1rem] text-white font-semibold;
-    }
+  .input-title {
+    @apply text-[1rem] text-white font-semibold;
+  }
 
-    .f-col{
-        @apply flex flex-col;
-    }
+  .f-col {
+    @apply flex flex-col;
+  }
 
-    .grid-4{
-        @apply grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-4;
-    }
+  .grid-4 {
+    @apply grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-4;
+  }
 
-    .editable{
-        @apply hover:bg-gray-100 hover:cursor-text outline-none;
-    }
-
+  .editable {
+    @apply hover:bg-gray-100 hover:cursor-text outline-none;
+  }
 }
 
-.name{
-    font-size: 20px;
-    font-weight: 700;
+.tableStyle {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 3px;
+  font-size: 13px;
 }
 
-.profession{
-    font-size: 16px;
-    font-weight: 500;
+.name {
+  font-size: 20px;
+  font-weight: 700;
 }
 
-.contact{
-    font-size: 14px;
-    font-weight: 400;
+.profession {
+  font-size: 16px;
+  font-weight: 500;
 }
 
-.social-media{
-    font-size: 12px;
-    font-weight: 400;
+.contact {
+  font-size: 14px;
+  font-weight: 400;
 }
 
-.section-title{
-    font-size: 16px;
-    font-weight: 700;
+.social-media {
+  font-size: 12px;
+  font-weight: 400;
 }
 
-.content{
-    font-size: 14px;
-    font-weight: 400;
+.section-title {
+  font-size: 16px;
+  font-weight: 700;
 }
 
-.sub-content{
-    font-size: 12px;
-    font-weight: 400;
+.content {
+  font-size: 14px;
+  font-weight: 400;
 }
 
-.i-bold{
-    font-weight: 700 !important;
+.sub-content {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.i-bold {
+  font-weight: 700 !important;
+}
+
+.footer {
+  background-color: #76cedd !important;
+  print-color-adjust: exact;
+  height: 3px;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 2px;
+}
+
+.heading {
+  background: #76cedd;
+  height: 5px;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 12px;
+  margin-left: 5px;
 }
 
 @media print {
-    .exclude-print {
-        display: none;
-    }
+  .exclude-print {
+    display: none;
+  }
 
-    .rm-padding-print {
-        padding: 0;
-    }
+  .heading {
+    background-color: #76cedd !important;
+    print-color-adjust: exact;
+    height: 5px;
+    border-radius: 5px;
+    margin-top: 12px;
+    margin-left: 5px;
+    width: 100%;
+  }
+  .footer {
+    background-color: #76cedd !important;
+    print-color-adjust: exact;
+    height: 3px;
+    border-radius: 5px;
+    width: 100%;
+  }
 
-    @page {
-        size: A4;
-        margin: 10mm;
-    }
+  .rm-padding-print {
+    padding: 0;
+  }
 
-    .preview {
-        overflow-y: visible !important;
-    }
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
 
-    .preview::after {
-        content: "Created using https://atsresume.vercel.app/";
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        opacity: 0.2;
-        font-size: small;
-        text-align: center;
-        z-index: -1;
-    }
+  .preview {
+    overflow-y: visible !important;
+  }
+
+  .tableStyle {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 3px;
+    font-size: 13px;
+  }
+
+  .name {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .profession {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .contact {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .social-media {
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  .section-title {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .content {
+    font-size: 14px;
+    font-weight: 400;
+  }
 }

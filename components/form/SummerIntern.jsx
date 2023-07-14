@@ -2,20 +2,20 @@ import FormButton from "./FormButton";
 import React, { useContext } from "react";
 import { ResumeContext } from "../../pages/builder";
 
-const WorkExperience = () => {
+const SummerIntern = () => {
   const { resumeData, setResumeData } = useContext(ResumeContext);
 
-  const handleWorkExperience = (e, index) => {
-    const newworkExperience = [...resumeData.workExperience];
+  const handleSummerExperience = (e, index) => {
+    const newworkExperience = [...resumeData.summerIntern];
     newworkExperience[index][e.target.name] = e.target.value;
-    setResumeData({ ...resumeData, workExperience: newworkExperience });
+    setResumeData({ ...resumeData, summerIntern: newworkExperience });
   };
 
-  const addWorkExperience = () => {
+  const addSummerExperience = () => {
     setResumeData({
       ...resumeData,
-      workExperience: [
-        ...resumeData.workExperience,
+      summerIntern: [
+        ...resumeData.summerIntern,
         {
           company: "",
           position: "",
@@ -28,50 +28,50 @@ const WorkExperience = () => {
     });
   };
 
-  const removeWorkExperience = (index) => {
-    const newworkExperience = [...resumeData.workExperience];
+  const removeSummerExperience = (index) => {
+    const newworkExperience = [...resumeData.summerIntern];
     newworkExperience[index] = newworkExperience[newworkExperience.length - 1];
     newworkExperience.pop();
-    setResumeData({ ...resumeData, workExperience: newworkExperience });
+    setResumeData({ ...resumeData, summerIntern: newworkExperience });
   };
 
   return (
     <div className="flex-col-gap-2">
-      <h2 className="input-title">Professional Experience</h2>
-      {resumeData.workExperience.map((workExperience, index) => (
+      <h2 className="input-title">Summer Intern Experience</h2>
+      {resumeData.summerIntern.map((summerIntern, index) => (
         <div key={index} className="f-col">
           <input
             type="text"
             placeholder="Company"
             name="company"
             className="w-full other-input"
-            value={workExperience.company}
-            onChange={(e) => handleWorkExperience(e, index)}
+            value={summerIntern.company}
+            onChange={(e) => handleSummerExperience(e, index)}
           />
           <input
             type="text"
             placeholder="Job Title"
             name="position"
             className="w-full other-input"
-            value={workExperience.position}
-            onChange={(e) => handleWorkExperience(e, index)}
+            value={summerIntern.position}
+            onChange={(e) => handleSummerExperience(e, index)}
           />
           <textarea
             type="text"
             placeholder="Description"
             name="description"
             className="w-full other-input h-32"
-            value={workExperience.description}
+            value={summerIntern.description}
             maxLength="250"
-            onChange={(e) => handleWorkExperience(e, index)}
+            onChange={(e) => handleSummerExperience(e, index)}
           />
           <textarea
             type="text"
             placeholder="Key Achievements"
             name="keyAchievements"
             className="w-full other-input h-40"
-            value={workExperience.keyAchievements}
-            onChange={(e) => handleWorkExperience(e, index)}
+            value={summerIntern.keyAchievements}
+            onChange={(e) => handleSummerExperience(e, index)}
           />
           <div className="flex-wrap-gap-2">
             <input
@@ -79,27 +79,27 @@ const WorkExperience = () => {
               placeholder="Start Year"
               name="startYear"
               className="other-input"
-              value={workExperience.startYear}
-              onChange={(e) => handleWorkExperience(e, index)}
+              value={summerIntern.startYear}
+              onChange={(e) => handleSummerExperience(e, index)}
             />
             <input
               type="date"
               placeholder="End Year"
               name="endYear"
               className="other-input"
-              value={workExperience.endYear}
-              onChange={(e) => handleWorkExperience(e, index)}
+              value={summerIntern.endYear}
+              onChange={(e) => handleSummerExperience(e, index)}
             />
           </div>
         </div>
       ))}
       <FormButton
-        size={resumeData.workExperience.length}
-        add={addWorkExperience}
-        remove={removeWorkExperience}
+        size={resumeData.summerIntern.length}
+        add={addSummerExperience}
+        remove={removeSummerExperience}
       />
     </div>
   );
 };
 
-export default WorkExperience;
+export default SummerIntern;

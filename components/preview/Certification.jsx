@@ -1,16 +1,18 @@
-const Certification = ({ title, certifications }) => {
+import { Heading } from "../utility/Heading";
 
-    return (
-        certifications.length > 0 &&
+const Certification = ({ title, awards }) => {
+  return (
+    awards.length > 0 && (
       <div>
-        <h2 className="section-title mb-1 border-b-2 border-gray-300">{title}</h2>
+        <Heading heading={title} width="73%" />
         <ul className="sub-content list-disc ul-padding">
-            {certifications.map((certification, index) => (
-                <li key={index}>{certification}</li>
-            ))}
+          {awards.map((certification, index) => (
+            <li key={index}>{certification}</li>
+          ))}
         </ul>
       </div>
-    );
-  };
+    )
+  );
+};
 
 export default Certification;

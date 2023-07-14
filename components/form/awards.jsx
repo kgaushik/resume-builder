@@ -2,11 +2,10 @@ import React, { useContext } from "react";
 import { ResumeContext } from "../../pages/builder";
 import FormButton from "./FormButton";
 
-const Language = () => {
+const Awards = () => {
   const { resumeData, setResumeData } = useContext(ResumeContext);
-  const skillType = "languages";
-  const title = "Languages";
-  const placeholder = "Language";
+  const skillType = "awards";
+  const title = "Awards & Achievements";
 
   const handleSkills = (e, index, skillType) => {
     const newSkills = [...resumeData[skillType]];
@@ -15,14 +14,17 @@ const Language = () => {
   };
 
   const addSkill = () => {
-    setResumeData({ ...resumeData, [skillType]: [...resumeData[skillType], ""] });
+    setResumeData({
+      ...resumeData,
+      [skillType]: [...resumeData[skillType], ""],
+    });
   };
 
   const removeSkill = (index) => {
     const newSkills = [...resumeData[skillType]];
     newSkills.splice(-1, 1);
     setResumeData({ ...resumeData, [skillType]: newSkills });
-  };  
+  };
 
   return (
     <div className="flex-col-gap-2">
@@ -31,17 +33,21 @@ const Language = () => {
         <div key={index} className="f-col">
           <input
             type="text"
-            placeholder={placeholder}
-            name="skill"
+            placeholder={title}
+            name={title}
             className="w-full other-input"
             value={skill}
             onChange={(e) => handleSkills(e, index, skillType)}
           />
         </div>
       ))}
-      <FormButton size={resumeData[skillType].length} add={addSkill} remove={removeSkill} />
+      <FormButton
+        size={resumeData[skillType].length}
+        add={addSkill}
+        remove={removeSkill}
+      />
     </div>
   );
 };
 
-export default Language;
+export default Awards;

@@ -4,6 +4,7 @@
 
 @layer base {
   body {
+    font-family: "Source Sans 3", "san-serif";
   }
 
   ::-webkit-scrollbar {
@@ -102,15 +103,16 @@
 }
 
 .section-title {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
+  line-height: 15px;
 }
 
 .content {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
+  line-height: 15px;
 }
-
 .sub-content {
   font-size: 12px;
   font-weight: 400;
@@ -134,7 +136,7 @@
   height: 5px;
   width: 100%;
   border-radius: 5px;
-  margin-top: 12px;
+  margin-top: 5px;
   margin-left: 5px;
 }
 
@@ -148,7 +150,7 @@
     print-color-adjust: exact;
     height: 5px;
     border-radius: 5px;
-    margin-top: 12px;
+    margin-top: 5px;
     margin-left: 5px;
     width: 100%;
   }
@@ -181,7 +183,7 @@
   }
 
   .name {
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 700;
   }
 
@@ -191,22 +193,24 @@
   }
 
   .contact {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
   }
 
   .social-media {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 400;
   }
 
   .section-title {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
+    line-height: 15px;
   }
 
   .content {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
+    line-height: 15px;
   }
 }

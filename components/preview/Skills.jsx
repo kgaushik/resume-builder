@@ -15,7 +15,7 @@ const Skills = ({ title, skills }) => {
   return (
     skills.length > 0 && (
       <>
-        <Heading heading="Skills & Certifications" width="76%" />
+        <Heading heading="Skills & Certifications" width="608px" />
         <ul className="list-disc ul-padding content">
           {skills.map((skill, i) => (
             <li key={i}>{skill}</li>

@@ -134,19 +134,19 @@ const Preview = () => {
           <div className="flex flex-row justify-between items-center">
             <Image src={GreatlakesLogo} alt="GreatLakes" />
             <div className="flex flex-col justify-center items-center">
-              <h1 className="name">{resumeData.name}</h1>
+              <h2 className="name">{resumeData.name}</h2>
               <h2>
                 {resumeData.age} years | {resumeData.gender}{" "}
               </h2>
             </div>
             {resumeData.profilePicture.length > 0 && (
-              <div className="w-24 h-24  overflow-hidde">
+              <div className="w-24 h-24 mr-2 overflow-hidde">
                 <Image
                   src={resumeData.profilePicture}
                   alt="profile"
                   width={100}
                   height={100}
-                  className="object-cover h-full w-full"
+                  className="h-full w-full"
                 />
               </div>
             )}
@@ -174,7 +174,7 @@ const Preview = () => {
                       <div {...provided.droppableProps} ref={provided.innerRef}>
                         <Heading
                           heading="Professional Experience"
-                          width="528px"
+                          width="592px"
                         />
                         {resumeData.workExperience.map((item, index) => (
                           <Draggable
@@ -192,7 +192,7 @@ const Preview = () => {
                                   "outline-dashed outline-2 outline-gray-400 bg-white"
                                 }`}
                               >
-                                <div className="flex flex-row justify-between items-center mb-2">
+                                <div className="flex flex-row justify-between items-center">
                                   <h4 className="content i-bold">
                                     {item.company}
                                   </h4>
@@ -267,7 +267,7 @@ const Preview = () => {
                   >
                     {(provided) => (
                       <div {...provided.droppableProps} ref={provided.innerRef}>
-                        <Heading heading="Summer Internship" width="566px" />
+                        <Heading heading="Summer Internship" width="622px" />
                         {resumeData.summerIntern.map((item, index) => (
                           <Draggable
                             key={`${item.company}-${index}`}
@@ -284,7 +284,7 @@ const Preview = () => {
                                   "outline-dashed outline-2 outline-gray-400 bg-white"
                                 }`}
                               >
-                                <div className="flex flex-row justify-between items-center mb-2">
+                                <div className="flex flex-row justify-between items-center">
                                   <h4 className="content i-bold">
                                     {item.company}
                                   </h4>
@@ -354,7 +354,7 @@ const Preview = () => {
               <div>
                 {resumeData.education.length > 0 && (
                   <div className="mb-1">
-                    <Heading heading="Academic Qualifications" width="527px" />
+                    <Heading heading="Academic Qualifications" width="592px" />
                     <table
                       style={{ borderCollapse: "collapse", width: "100%" }}
                       border="2"
@@ -420,7 +420,7 @@ const Preview = () => {
                       <div {...provided.droppableProps} ref={provided.innerRef}>
                         <Heading
                           heading="Academic Projects/Internship"
-                          width="67%"
+                          width="554px"
                         />
                         {resumeData.projects.map((item, index) => (
                           <Draggable
@@ -511,7 +511,7 @@ const Preview = () => {
           </div>
         </DragDropContext>
         <div className="footer"></div>
-        <h6 className="text-right text-xs">
+        <h6 className="text-right text-xs italic">
           Great Lakes Institute of Management, Gurgaon 2022-2024
         </h6>
       </A4PageWrapper>

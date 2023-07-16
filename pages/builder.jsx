@@ -15,6 +15,7 @@ import Education from "../components/form/Education";
 import dynamic from "next/dynamic";
 import Awards from "../components/form/awards";
 import SummerIntern from "../components/form/SummerIntern";
+import axios from "axios";
 
 const ResumeContext = createContext(DefaultResumeData);
 
@@ -50,6 +51,15 @@ export default function Builder(props) {
     console.log(resumeData);
   };
 
+  const handleClick = async (e) => {
+    e.preventDefault();
+    console.log(resumeData);
+    axios
+      .post("localhost:8000/savedata/", resumeData)
+      .then((data) => [console.log(data)])
+      .catch((err) => console.log(err));
+  };
+
   return (
     <>
       <ResumeContext.Provider
@@ -83,6 +93,28 @@ export default function Builder(props) {
             </form>
           )}
           <Preview />
+          <div>
+            <input
+              style={{ border: "1px solid #000" }}
+              type="text"
+              name="rollno"
+              value={resumeData.rollno}
+              onChange={handleChange}
+              placeholder="Enter the roll number"
+            />
+            <input
+              style={{ border: "1px solid #000" }}
+              type="text"
+              name="secret"
+              value={resumeData.secret}
+              onChange={handleChange}
+              placeholder="Enter the secret key"
+            />
+            <button onClick={handleClick} style={{ border: "1px solid #000" }}>
+              {" "}
+              Upload data
+            </button>
+          </div>
         </div>
 
         <FormCP formClose={formClose} setFormClose={setFormClose} />

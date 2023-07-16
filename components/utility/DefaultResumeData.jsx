@@ -1,4 +1,6 @@
 const DefaultResumeData = {
+  rollno: "",
+  secret: "",
   name: "MARCUS HALL",
   age: "24",
   gender: "Male",

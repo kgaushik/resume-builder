@@ -16,11 +16,11 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-fuchsia-600;
+    @apply bg-[#16A34A];
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-fuchsia-700;
+    @apply bg-[#16A34A];
   }
 
   textarea,
@@ -43,7 +43,7 @@
   }
 
   .profileInput {
-    @apply pi file:border-0 file:bg-fuchsia-500 file:text-white file:rounded-sm;
+    @apply pi file:border-0 file:bg-[#16A34A] file:text-white file:rounded-sm;
   }
 
   .flex-col-gap-2 {
@@ -107,7 +107,13 @@
   font-weight: 700;
   line-height: 15px;
 }
-
+.pageStart {
+  position: relative;
+}
+.footerB {
+  position: absolute;
+  bottom: 0px;
+}
 .content {
   font-size: 13px;
   font-weight: 400;
@@ -134,6 +140,7 @@
 .heading {
   background: #76cedd;
   height: 5px;
+  flex: 2;
   width: 100%;
   border-radius: 5px;
   margin-top: 5px;
@@ -149,6 +156,7 @@
     background-color: #76cedd !important;
     print-color-adjust: exact;
     height: 5px;
+    flex: 2;
     border-radius: 5px;
     margin-top: 5px;
     margin-left: 5px;
@@ -207,10 +215,38 @@
     font-weight: 700;
     line-height: 15px;
   }
+  .pageStart {
+    position: relative;
+  }
 
   .content {
     font-size: 13px;
     font-weight: 400;
     line-height: 15px;
+  }
+  .footerB {
+    position: absolute;
+    bottom: 0px;
+  }
+
+  .preview::after {
+    content: "";
+    background-color: #76cedd;
+    border-radius: 5px;
+    print-color-adjust: exact;
+    width: 100%;
+    bottom: 0;
+    height: 5px;
+    position: fixed;
+    margin-bottom: 20px;
+    z-index: -1;
+  }
+  .preview::after {
+    content: "Great Lakes of Institute of Management, Gurugram 2022-2024";
+    font-family: "Cormorant Garamond", "serif";
+    position: fixed;
+    text-align: right;
+    font-size: small;
+    z-index: -1;
   }
 }

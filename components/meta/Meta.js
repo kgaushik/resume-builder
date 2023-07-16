@@ -1,23 +1,23 @@
 import Head from "next/head";
+import Favicon from "../../public/assets/favicon.ico";
+import Logo from "../../public/assets/logo.png";
 
 export default function Meta({ title, keywords, description }) {
-    const homepage = "https://atsresume.vercel.app/";
-    const logo = "https://atsresume.vercel.app/assets/logo.png";
-    const fevicon = "https://atsresume.vercel.app/assets/favicon.ico";
+  const homepage = "https://atsresume.vercel.app/";
 
-    function isiteJsonLd() {
-        return {
-            __html: `{
+  function isiteJsonLd() {
+    return {
+      __html: `{
                 "@context": "https://schema.org",
                 "@type": "Organization",
                 "url": ${homepage},
-                "logo": ${logo},
+                "logo": ${Logo},
                 "contactPoint": {
                     "@type": "ContactPoint",
                     "telephone": "+91 9999999999",
                     "contactType": "customer service"
                 },
-                "image": ${logo},
+                "image": ${Logo},
                 "description": ${description},
                 "founder": "Saurav Hathi",
                 "foundingDate": "2023",
@@ -32,43 +32,38 @@ export default function Meta({ title, keywords, description }) {
                 "memberOf": "Saurav Hathi",
                 "owns": "Saurav Hathi",
                 "publishingPrinciples": ${homepage},
-                "slogan": "Get hired with an ATS-optimized resume"
-            }`
-        }
-    }
+                "slogan": "Resume Builder"
+            }`,
+    };
+  }
 
-
-    return (
-        <Head>
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <meta name="keywords" content={keywords} />
-            <meta name="description" content={description} />
-            <meta charSet="utf-8" />
-            <link rel="icon" href={fevicon} />
-            <title>{title}</title>
-            <meta type="copyright" content="ATSResume" />
-            <meta type="author" content="Saurav Hathi" />
-            {/* Open Graph */}
-            <meta property="og:type" content="website" />
-            <meta property="og:url" content={homepage} />
-            <meta property="og:title" content={title} />
-            <meta
-                property="og:description"
-                content={description} />
-            <meta property="og:image" content={logo} />
-            {/* Twitter */}
-            <meta property="twitter:card" content="summary_large_image" />
-            <meta property="twitter:url" content={homepage} />
-            <meta property="twitter:title" content={title} />
-            <meta
-                property="twitter:description"
-                content={description} />
-            <meta property="twitter:image" content={logo} />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={isiteJsonLd()}
-                key="isiteJsonLd"
-            />
-        </Head>
-    );
+  return (
+    <Head>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="keywords" content={keywords} />
+      <meta name="description" content={description} />
+      <meta charSet="utf-8" />
+      <link rel="icon" href={Favicon} />
+      <title>{title}</title>
+      <meta type="copyright" content="Resume Builder" />
+      <meta type="author" content="Saurav Hathi" />
+      {/* Open Graph */}
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={homepage} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={Logo} />
+      {/* Twitter */}
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:url" content={homepage} />
+      <meta property="twitter:title" content={title} />
+      <meta property="twitter:description" content={description} />
+      <meta property="twitter:image" content={Logo} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={isiteJsonLd()}
+        key="isiteJsonLd"
+      />
+    </Head>
+  );
 }

@@ -127,7 +127,7 @@ const Preview = () => {
   return (
     <div
       ref={componentRef}
-      className="md:max-w-[60%] sticky top-0 preview rm-padding-print p-6 md:overflow-y-scroll md:h-screen"
+      className="md:max-w-[60%] sticky top-0 preview rm-padding-print  p-6 md:overflow-y-scroll md:h-screen"
     >
       <A4PageWrapper>
         <DragDropContext onDragEnd={onDragEnd}>
@@ -153,7 +153,7 @@ const Preview = () => {
           </div>
 
           {/* two column start */}
-          <div>
+          <div className="pageStart">
             <div>
               {resumeData.summary.length > 0 && (
                 <div className="mb-1">
@@ -510,10 +510,6 @@ const Preview = () => {
             </div>
           </div>
         </DragDropContext>
-        <div className="footer"></div>
-        <h6 className="text-right text-xs italic">
-          Great Lakes Institute of Management, Gurgaon 2022-2024
-        </h6>
       </A4PageWrapper>
     </div>
   );
@@ -530,7 +526,7 @@ const A4PageWrapper = ({ children }) => {
   };
 
   return (
-    <div className="w-8.5in" onLoad={alertA4Size}>
+    <div className="w-8.5in " onLoad={alertA4Size}>
       {children}
     </div>
   );

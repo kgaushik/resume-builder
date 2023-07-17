@@ -85,6 +85,7 @@
 .name {
   font-size: 20px;
   font-weight: 700;
+  font-family: "Source Sans 3", "san-serif";
 }
 
 .profession {
@@ -95,6 +96,7 @@
 .contact {
   font-size: 14px;
   font-weight: 400;
+  font-family: "Cormorant Garamond", "serif";
 }
 
 .social-media {
@@ -106,6 +108,7 @@
   font-size: 15px;
   font-weight: 700;
   line-height: 15px;
+  font-family: "Source Sans 3", "san-serif";
 }
 .pageStart {
   position: relative;
@@ -118,10 +121,12 @@
   font-size: 13px;
   font-weight: 400;
   line-height: 15px;
+  font-family: "Cormorant Garamond", "serif";
 }
 .sub-content {
   font-size: 12px;
   font-weight: 400;
+  font-family: "Cormorant Garamond", "serif";
 }
 
 .i-bold {

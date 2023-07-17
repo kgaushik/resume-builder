@@ -132,11 +132,7 @@ const Preview = () => {
       <A4PageWrapper>
         <DragDropContext onDragEnd={onDragEnd}>
           <div className="flex flex-row justify-between items-center">
-            <Image
-              src={GreatlakesLogo}
-              alt="GreatLakes"
-              style={{ objectFit: "cover" }}
-            />
+            <Image src={GreatlakesLogo} alt="GreatLakes" />
             <div className="flex flex-col justify-center items-center">
               <h2 className="name">{resumeData.name}</h2>
               <h2>
@@ -150,7 +146,11 @@ const Preview = () => {
                   alt="profile"
                   width={100}
                   height={100}
-                  className="h-full w-full"
+                  style={{
+                    height: "100px",
+                    width: "100px",
+                    clipPath: "inset(0px 0px 15px 0px)",
+                  }}
                 />
               </div>
             )}
@@ -360,7 +360,10 @@ const Preview = () => {
                   <div className="mb-1">
                     <Heading heading="Academic Qualifications" width="592px" />
                     <table
-                      style={{ borderCollapse: "collapse", width: "100%" }}
+                      style={{
+                        borderCollapse: "collapse",
+                        width: "99%",
+                      }}
                       border="2"
                     >
                       <thead>

@@ -2,7 +2,7 @@ const DateRange = ({ startYear, endYear, id }) => {
   const start = new Date(startYear);
   const end = new Date(endYear);
   return (
-    <h4 id={id} className="sub-content mr-2 i-bold">
+    <p style={{ fontSize: "10px" }} id={id} className="mr-2 i-bold ">
       {start.toLocaleString("default", { month: "short" })},{" "}
       {start.getFullYear()} to{" "}
       {end != "Invalid Date"
@@ -10,7 +10,7 @@ const DateRange = ({ startYear, endYear, id }) => {
           ", " +
           end.getFullYear()
         : "Present"}
-    </h4>
+    </p>
   );
 };
 

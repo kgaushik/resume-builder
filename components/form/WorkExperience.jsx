@@ -1,10 +1,10 @@
 import FormButton from "./FormButton";
-import React, { useContext } from "react";
+import React, { use, useContext, useState } from "react";
 import { ResumeContext } from "../../pages/builder";
 
 const WorkExperience = () => {
   const { resumeData, setResumeData } = useContext(ResumeContext);
-
+  const [limit, setLimit] = useState(false);
   const handleWorkExperience = (e, index) => {
     const newworkExperience = [...resumeData.workExperience];
     newworkExperience[index][e.target.name] = e.target.value;
@@ -12,6 +12,10 @@ const WorkExperience = () => {
   };
 
   const addWorkExperience = () => {
+    if (resumeData.workExperience.length > 2) {
+      setLimit(true);
+      return;
+    }
     setResumeData({
       ...resumeData,
       workExperience: [
@@ -29,6 +33,7 @@ const WorkExperience = () => {
   };
 
   const removeWorkExperience = (index) => {
+    setLimit(false);
     const newworkExperience = [...resumeData.workExperience];
     newworkExperience[index] = newworkExperience[newworkExperience.length - 1];
     newworkExperience.pop();
@@ -93,6 +98,7 @@ const WorkExperience = () => {
           </div>
         </div>
       ))}
+      {limit && <p style={{ color: "red" }}>You cant add more than 3</p>}
       <FormButton
         size={resumeData.workExperience.length}
         add={addWorkExperience}

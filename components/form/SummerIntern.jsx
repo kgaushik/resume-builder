@@ -1,10 +1,10 @@
 import FormButton from "./FormButton";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ResumeContext } from "../../pages/builder";
 
 const SummerIntern = () => {
   const { resumeData, setResumeData } = useContext(ResumeContext);
-
+  const [limit, setLimit] = useState(false);
   const handleSummerExperience = (e, index) => {
     const newworkExperience = [...resumeData.summerIntern];
     newworkExperience[index][e.target.name] = e.target.value;
@@ -12,6 +12,10 @@ const SummerIntern = () => {
   };
 
   const addSummerExperience = () => {
+    if (resumeData.summerIntern.length > 0) {
+      setLimit(true);
+      return;
+    }
     setResumeData({
       ...resumeData,
       summerIntern: [
@@ -28,7 +32,46 @@ const SummerIntern = () => {
     });
   };
 
+  const industryOptions = [
+    "Software",
+    "Hardware",
+    "Telecom",
+    "IT Services",
+    "Internet",
+    "Banking",
+    "Insurance",
+    "Securities",
+    "Asset Management",
+    "Consulting",
+    "Pharmaceuticals",
+    "Medical Devices",
+    "Hospitals",
+    "Clinics",
+    "Research",
+    "Ecommerce",
+    "Retail Stores",
+    "Food & Beverage",
+    "Clothing & Accessories",
+    "Home Goods",
+    "Broadcasting",
+    "Film & Television",
+    "Music",
+    "Publishing",
+    "Advertising",
+    "Automotive",
+    "Aerospace",
+    "Heavy Machinery",
+    "Consumer Products",
+    "Food & Beverage",
+    "Energy",
+    "Utilities",
+    "Transportation",
+    "Government",
+    "Education",
+  ];
+
   const removeSummerExperience = (index) => {
+    setLimit(false);
     const newworkExperience = [...resumeData.summerIntern];
     newworkExperience[index] = newworkExperience[newworkExperience.length - 1];
     newworkExperience.pop();
@@ -56,15 +99,21 @@ const SummerIntern = () => {
             value={summerIntern.position}
             onChange={(e) => handleSummerExperience(e, index)}
           />
-          <textarea
+          <select
             type="text"
             placeholder="Description"
-            name="description"
-            className="w-full other-input h-32"
-            value={summerIntern.description}
-            maxLength="250"
+            name="industry"
+            className="w-full other-input h-10"
+            value={summerIntern.industry}
             onChange={(e) => handleSummerExperience(e, index)}
-          />
+          >
+            {industryOptions.map((option, index) => (
+              <option key={index} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+
           <textarea
             type="text"
             placeholder="Key Achievements"
@@ -93,6 +142,7 @@ const SummerIntern = () => {
           </div>
         </div>
       ))}
+      {limit && <p style={{ color: "red" }}>You cant add more than 1</p>}
       <FormButton
         size={resumeData.summerIntern.length}
         add={addSummerExperience}

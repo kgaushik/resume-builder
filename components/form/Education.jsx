@@ -1,10 +1,10 @@
 import FormButton from "./FormButton";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ResumeContext } from "../../pages/builder";
 
 const Education = () => {
   const { resumeData, setResumeData } = useContext(ResumeContext);
-
+  const [limit, setLimit] = useState(false);
   const handleEducation = (e, index) => {
     const newEducation = [...resumeData.education];
     newEducation[index][e.target.name] = e.target.value;
@@ -12,6 +12,10 @@ const Education = () => {
   };
 
   const addEducation = () => {
+    if (resumeData.education.length > 4) {
+      setLimit(true);
+      return;
+    }
     setResumeData({
       ...resumeData,
       education: [
@@ -22,6 +26,7 @@ const Education = () => {
   };
 
   const removeEducation = (index) => {
+    setLimit(false);
     const newEducation = [...resumeData.education];
     newEducation[index] = newEducation[newEducation.length - 1];
     newEducation.pop();
@@ -67,6 +72,7 @@ const Education = () => {
           />
         </div>
       ))}
+      {limit && <p style={{ color: "red" }}>You cant add more than 5</p>}
       <FormButton
         size={resumeData.education.length}
         add={addEducation}

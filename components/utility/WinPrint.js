@@ -8,10 +8,18 @@ const WinPrint = () => {
   return (
     <button
       aria-label="Download Resume"
-      className="exclude-print fixed bottom-5 right-10 font-bold rounded-full bg-white text-fuchsia-600 shadow-lg border-2 border-white"
+      className="exclude-print fixed bottom-5 right-10 "
       onClick={print}
+      style={{
+        background: "green",
+        color: "white",
+        height: "40px",
+        borderRadius: "5px",
+        width: "250px",
+        float: "right",
+      }}
     >
-      <MdPictureAsPdf className="w-10 h-10" title="Download Resume" />
+      Export pdf
     </button>
   );
 };

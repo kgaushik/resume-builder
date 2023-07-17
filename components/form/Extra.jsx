@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ResumeContext } from "../../pages/builder";
 import FormButton from "./FormButton";
 
 const Extra = () => {
   const { resumeData, setResumeData } = useContext(ResumeContext);
+  const [limit, setLimit] = useState(false);
+
   const skillType = "extraActivities";
   const title = "Extra Activities";
   const placeholder = "Extra Activities";
@@ -15,6 +17,10 @@ const Extra = () => {
   };
 
   const addSkill = () => {
+    if (resumeData.extraActivities.length > 2) {
+      setLimit(true);
+      return;
+    }
     setResumeData({
       ...resumeData,
       [skillType]: [...resumeData[skillType], ""],
@@ -22,6 +28,7 @@ const Extra = () => {
   };
 
   const removeSkill = (index) => {
+    setLimit(false);
     const newSkills = [...resumeData[skillType]];
     newSkills.splice(-1, 1);
     setResumeData({ ...resumeData, [skillType]: newSkills });
@@ -42,6 +49,7 @@ const Extra = () => {
           />
         </div>
       ))}
+      {limit && <p style={{ color: "red" }}>You cant add more than 3</p>}
       <FormButton
         size={resumeData[skillType].length}
         add={addSkill}

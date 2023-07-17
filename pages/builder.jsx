@@ -75,9 +75,9 @@ export default function Builder(props) {
           description="ATSResume is a cutting-edge resume builder that helps job seekers create a professional, ATS-friendly resume in minutes. Our platform uses the latest technology to analyze and optimize your resume for maximum visibility and success with applicant tracking systems. Say goodbye to frustration and wasted time spent on manual resume formatting. Create your winning resume with ATSResume today and get noticed by employers."
           keywords="ATS-friendly, Resume optimization, Keyword-rich resume, Applicant Tracking System, ATS resume builder, ATS resume templates, ATS-compliant resume, ATS-optimized CV, ATS-friendly format, ATS resume tips, Resume writing services, Career guidance, Job search in India, Resume tips for India, Professional resume builder, Cover letter writing, Interview preparation, Job interview tips, Career growth, Online job applications, resume builder, free resume builder, resume ats, best free resume builder, resume creator, resume cv, resume design, resume editor, resume maker"
         />
-        <div className="f-col gap-4 md:flex-row justify-evenly max-w-7xl md:mx-auto md:h-screen">
+        <div className="f-col gap-4 md:flex-row justify-evenly max-w-7xl  md:h-screen">
           {!formClose && (
-            <form className="p-4 bg-[#16A34A] exclude-print md:max-w-[40%] md:h-screen md:overflow-y-scroll">
+            <form className="p-4 bg-[#16A34A] exclude-print w-[75%] md:h-screen md:overflow-y-scroll">
               <LoadUnload />
               <PersonalInformation />
               <Summary />
@@ -93,31 +93,50 @@ export default function Builder(props) {
             </form>
           )}
           <Preview />
-          <div>
+          <div className="exclude-print ml-10  mt-14 w-[128px]">
+            <label style={{ color: "green" }}>Enter Roll No.</label>
             <input
-              style={{ border: "1px solid #000" }}
+              style={{
+                border: "1px solid green",
+                height: "40px",
+                borderRadius: "5px",
+                width: "250px",
+                marginBottom: "30px",
+              }}
               type="text"
               name="rollno"
               value={resumeData.rollno}
               onChange={handleChange}
-              placeholder="Enter the roll number"
             />
+            <label style={{ color: "green" }}>Secret Code.</label>
             <input
-              style={{ border: "1px solid #000" }}
+              style={{
+                border: "1px solid green",
+                height: "40px",
+                borderRadius: "5px",
+                width: "250px",
+              }}
               type="text"
               name="secret"
               value={resumeData.secret}
               onChange={handleChange}
-              placeholder="Enter the secret key"
             />
-            <button onClick={handleClick} style={{ border: "1px solid #000" }}>
-              {" "}
+            <button
+              onClick={handleClick}
+              style={{
+                background: "green",
+                color: "white",
+                height: "40px",
+                borderRadius: "5px",
+                width: "250px",
+                marginTop: "20px",
+              }}
+            >
               Upload data
             </button>
           </div>
         </div>
 
-        <FormCP formClose={formClose} setFormClose={setFormClose} />
         <Print />
       </ResumeContext.Provider>
     </>

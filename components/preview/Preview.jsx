@@ -132,7 +132,11 @@ const Preview = () => {
       <A4PageWrapper>
         <DragDropContext onDragEnd={onDragEnd}>
           <div className="flex flex-row justify-between items-center">
-            <Image src={GreatlakesLogo} alt="GreatLakes" />
+            <Image
+              src={GreatlakesLogo}
+              alt="GreatLakes"
+              style={{ objectFit: "cover" }}
+            />
             <div className="flex flex-col justify-center items-center">
               <h2 className="name">{resumeData.name}</h2>
               <h2>
@@ -360,10 +364,14 @@ const Preview = () => {
                       border="2"
                     >
                       <thead>
-                        <th style={tableStyle}>Degree</th>
-                        <th style={tableStyle}>Year</th>
-                        <th style={tableStyle}>Institute, University/ Board</th>
-                        <th style={tableStyle}>% /CGPA</th>
+                        <tr>
+                          <th style={tableStyle}>Degree</th>
+                          <th style={tableStyle}>Year</th>
+                          <th style={tableStyle}>
+                            Institute, University/ Board
+                          </th>
+                          <th style={tableStyle}>% /CGPA</th>
+                        </tr>
                       </thead>
                       <tbody>
                         {resumeData.education.map((details, i) => (
@@ -440,11 +448,15 @@ const Preview = () => {
                               >
                                 <div className="flex flex-row justify-between items-center">
                                   <p className="content i-bold">{item.name}</p>
-                                  <DateRange
-                                    startYear={item.startYear}
-                                    endYear={item.endYear}
-                                    id={`work-experience-start-end-date`}
-                                  />
+                                  {item.startYear ? (
+                                    <DateRange
+                                      startYear={item.startYear}
+                                      endYear={item.endYear}
+                                      id={`work-experience-start-end-date`}
+                                    />
+                                  ) : (
+                                    ""
+                                  )}
                                 </div>
 
                                 <Droppable

@@ -1,9 +1,10 @@
 import FormButton from "./FormButton";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ResumeContext } from "../../pages/builder";
 
 const Projects = () => {
   const { resumeData, setResumeData } = useContext(ResumeContext);
+  const [limit, setLimit] = useState(false);
 
   const handleProjects = (e, index) => {
     const newProjects = [...resumeData.projects];
@@ -12,6 +13,10 @@ const Projects = () => {
   };
 
   const addProjects = () => {
+    if (resumeData.projects.length > 2) {
+      setLimit(true);
+      return;
+    }
     setResumeData({
       ...resumeData,
       projects: [
@@ -29,6 +34,7 @@ const Projects = () => {
   };
 
   const removeProjects = (index) => {
+    setLimit(false);
     const newProjects = [...resumeData.projects];
     newProjects[index] = newProjects[newProjects.length - 1];
     newProjects.pop();
@@ -76,6 +82,8 @@ const Projects = () => {
           </div>
         </div>
       ))}
+      {limit && <p style={{ color: "red" }}>You cant add more than 3</p>}
+
       <FormButton
         size={resumeData.projects.length}
         add={addProjects}

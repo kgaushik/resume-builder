@@ -55,7 +55,7 @@ export default function Builder(props) {
     e.preventDefault();
     console.log(resumeData);
     axios
-      .post("localhost:8000/savedata/", resumeData)
+      .post("http://127.0.0.1:8000/savedata/", resumeData)
       .then((data) => [console.log(data)])
       .catch((err) => console.log(err));
   };
